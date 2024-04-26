@@ -16,6 +16,7 @@
 header {
     display: flex;
     justify-content: space-around;
+    padding-block: 1rem;
 }
 
 .font-info {
@@ -33,4 +34,8 @@ small {
 .btn span {
     display: block;
     margin-block: 0;
+}
+
+footer {
+    padding-block: 1rem;
 }
