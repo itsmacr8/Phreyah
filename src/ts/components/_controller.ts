@@ -46,7 +46,7 @@ function createFontSizes(baseFS:number, scaleRatioName:string, screenSize:string
     fontSize[screenSize]['h5'] = h5
     fontSize[screenSize]['h6'] = h6
     fontSize[screenSize]['p'] = baseFontSize
-    fontSize[screenSize]['span'] = smallText
+    fontSize[screenSize]['small'] = smallText
     console.log(h1, h2, h3, h4, h5, h6, baseFontSize, smallText)
 }
 
