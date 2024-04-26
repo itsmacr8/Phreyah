@@ -1,0 +1,64 @@
+.btn {
+    display: block;
+    width: fit-content;
+    padding: var(--padding);
+    background-color: var(--background, var(--primary-500));
+    border: 1px solid var(--primary-500);
+    border-radius: 999px;
+    color: var(--color-btn, var(--white));
+    cursor: pointer;
+    font-family: sans-serif, system-ui;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+
+    &:disabled {
+        cursor: default;
+    }
+    &:-moz-focusring {
+        outline: auto;
+    }
+    & svg {
+        display: block;
+    }
+    & [hidden] {
+        display: none;
+    }
+    & .original {
+        background: #fff;
+        color: #000;
+        display: grid;
+        inset: 0;
+        place-content: center;
+        position: absolute;
+        transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+    }
+    &--animation .original {
+        transform: translateY(100%);
+    }
+    & .letters {
+        display: inline-flex;
+    }
+    & span {
+        opacity: 0;
+        transform: translateY(-15px);
+        transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.2s;
+    }
+    & span:nth-child(2n) {
+        transform: translateY(15px);
+    }
+    &--animation span {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    &--animation {
+        @for $i from 1 through 13 {
+        span:nth-child(#{$i}) {
+            transition-delay: #{0.1 * ($i - 1)}s;
+        }
+        }
+    }
+}
