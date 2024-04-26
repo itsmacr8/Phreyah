@@ -1,0 +1,17 @@
+// 400 is the base color. After that it depends on the lightness of hsl.
+:root {
+    --primary-400: hsl(259, 73%, 40%);
+    --primary-500: hsl(260, 73%, 48%);
+
+    --white: hsl(0, 0%, 100%);
+    --grey-300: hsl(0, 0%, 96%);
+    --grey-400: hsl(0, 0%, 94%);
+    --black: hsl(0, 0%, 0%);
+
+    --space-1: 0.3125rem;
+    --space-2: 0.625rem;
+
+    --padding: 0.5em 1em;
+    --hundred: 100%;
+}
+
