@@ -1,3 +1,5 @@
+const btnFontGen = document.querySelector('.btn--font-generator') as HTMLButtonElement;
+
 interface fontScaleFormulaInterface {
     [key: string]: number;
 }
@@ -29,9 +31,14 @@ fontForm?.addEventListener('submit', function(event) {
 
     const baseFontSize = Number((form.elements.namedItem('base-font-size') as HTMLInputElement).value);
     const scaleRatioName = (form.elements.namedItem('font-scale-ratio') as HTMLSelectElement).value;
-    createFontSizes(baseFontSize, scaleRatioName, 'desktop')
-    createFontSizes(baseFontSize, scaleRatioName, 'mobile')
-    updateDomWithUserFontSize()
+    if (baseFontSize) {
+        btnFontGen.addEventListener("click", () => {
+            btnFontGen.classList.add('btn--animation');
+        })
+        createFontSizes(baseFontSize, scaleRatioName, 'desktop')
+        createFontSizes(baseFontSize, scaleRatioName, 'mobile')
+        updateDomWithUserFontSize()
+    }
 });
 
 function createFontSizes(baseFS:number, scaleRatioName:string, screenSize:string) {
