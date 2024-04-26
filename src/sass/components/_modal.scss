@@ -5,8 +5,9 @@
         left: 50%;
         transform: translate(-50%, -50%);
         width: 80%;
+        max-width: 50rem;
         background-color: white;
-        padding: 3rem;
+        padding: clamp(1.5rem, 5vw, 3rem);
         border-radius: 5px;
         box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
         z-index: 10;
