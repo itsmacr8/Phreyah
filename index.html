@@ -16,7 +16,32 @@
       <div class="modal__content modal--hidden">
         <button class="modal__close">&times;</button>
         <div class="modal__title text-center">Name</div>
-        <div class="modal__body text-center">body</div>
+        <form class="modal__body font-scale-form">
+          <div class="form__group">
+            <label for="base-font-size">Body text or paragraph font size:</label>
+            <input type="text" id="base-font-size" name="base-font-size">
+          </div>
+          <div class="form__group">
+            <label for="font-scale-ratio">Select a scale ratio:</label>
+            <select name="font-scale-ratio" id="font-scale-ratio" class="font-scale-ratio">
+                <optgroup label="Low contrast scales">
+                    <option value="minor-second">Minor second: 1.067</option>
+                    <option value="major-second">Major second: 1.125</option>
+                </optgroup>
+                <optgroup label="Medium contrast scales">
+                    <option value="minor-third" selected>Minor third: 1.200</option>
+                    <option value="major-third">Major third: 1.250</option>
+                    <option value="perfect-fourth">Perfect fourth: 1.333</option>
+                </optgroup>
+                <optgroup label="High contrast scales">
+                    <option value="augmented-fourth">Augmented fourth: 1.444</option>
+                    <option value="perfect-fifth">Perfect fifth: 1.500</option>
+                    <option value="golden-ratio">Golden Ratio: 1.618</option>
+                </optgroup>
+            </select>
+          </div>
+            <button class="btn" type="submit">Generate</button>
+        </form>
       </div>
     </div>
   </main>
