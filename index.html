@@ -5,8 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Title</title>
 </head>
-<body>
-  <h1>Hello World!</h1>
+<body class="page-layout">
+  <header>
+    <div>Logo</div>
+    <button class="modal-button">Settings</button>
+  </header>
+  <main class="container">
+    <div class="modal">
+      <div class="modal__overlay modal__overlay--hidden"></div>
+      <div class="modal__content modal--hidden">
+        <button class="modal__close">&times;</button>
+        <div class="modal__title text-center">Name</div>
+        <div class="modal__body text-center">body</div>
+      </div>
+    </div>
+  </main>
+  <footer>This is the footer</footer>
   <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

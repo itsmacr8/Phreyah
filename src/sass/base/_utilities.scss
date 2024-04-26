@@ -1,0 +1,19 @@
+.page-layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.container {
+    margin-inline: auto;
+    width: 90%;
+    max-width: 1600px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+}
