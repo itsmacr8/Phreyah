@@ -1,5 +1,6 @@
 const btnFontGen = document.querySelector('.btn--font-generator') as HTMLButtonElement;
 const baseFontInput = document.querySelector('.base-font-size') as HTMLButtonElement;
+let isButtonDisable:boolean
 
 interface fontScaleFormulaInterface {
     [key: string]: number;
@@ -34,10 +35,16 @@ function handleInputChange(event: Event) {
     if (target.value) {
         console.log('working!')
         btnFontGen.removeAttribute('disabled')
+        isButtonDisable = false
     } else {
         btnFontGen.setAttribute('disabled', 'true')
+        isButtonDisable = true
     }
 }
+
+btnFontGen.addEventListener("click", () => {
+    !isButtonDisable && btnFontGen.classList.add('btn--animation');
+})
 
 const fontForm = document.querySelector('.font-scale-form');
 fontForm?.addEventListener('submit', function(event) {
@@ -47,9 +54,6 @@ fontForm?.addEventListener('submit', function(event) {
     const baseFontSize = Number((form.elements.namedItem('base-font-size') as HTMLInputElement).value);
     const scaleRatioName = (form.elements.namedItem('font-scale-ratio') as HTMLSelectElement).value;
     if (baseFontSize) {
-        btnFontGen.addEventListener("click", () => {
-            btnFontGen.classList.add('btn--animation');
-        })
         createFontSizes(baseFontSize, scaleRatioName, 'desktop')
         createFontSizes(baseFontSize, scaleRatioName, 'mobile')
         updateDomWithUserFontSize()
