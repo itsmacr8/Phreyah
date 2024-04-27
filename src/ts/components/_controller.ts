@@ -1,4 +1,5 @@
 const btnFontGen = document.querySelector('.btn--font-generator') as HTMLButtonElement;
+const baseFontInput = document.querySelector('.base-font-size') as HTMLButtonElement;
 
 interface fontScaleFormulaInterface {
     [key: string]: number;
@@ -23,6 +24,20 @@ const fontSize:fontSizeInterface = {
     desktop: {},
     mobile: {}
 };
+
+baseFontInput.addEventListener('change', (event: Event) => {
+    handleInputChange(event)
+})
+
+function handleInputChange(event: Event) {
+    const target = event.target as HTMLFormElement;
+    if (target.value) {
+        console.log('working!')
+        btnFontGen.removeAttribute('disabled')
+    } else {
+        btnFontGen.setAttribute('disabled', 'true')
+    }
+}
 
 const fontForm = document.querySelector('.font-scale-form');
 fontForm?.addEventListener('submit', function(event) {
