@@ -3,7 +3,7 @@
     width: fit-content;
     padding: var(--padding);
     background-color: var(--background, var(--primary-500));
-    border: 1px solid var(--primary-500);
+    border: var(--border, 1px solid var(--primary-500));
     border-radius: 999px;
     color: var(--color-btn, var(--white));
     cursor: pointer;
@@ -15,7 +15,10 @@
     overflow: hidden;
 
     &:disabled {
+        --border: none;
+        background-color: var(--grey-400);
         cursor: default;
+        color: var(--black)
     }
     &:-moz-focusring {
         outline: auto;
@@ -27,8 +30,6 @@
         display: none;
     }
     & .original {
-        background: #fff;
-        color: #000;
         display: grid;
         inset: 0;
         place-content: center;
