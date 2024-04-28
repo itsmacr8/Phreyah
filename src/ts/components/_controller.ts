@@ -27,7 +27,7 @@ const fontSize:fontSizeInterface = {
     mobile: {}
 };
 
-baseFontInput.addEventListener('change', (event: Event) => {
+baseFontInput.addEventListener('input', (event: Event) => {
     handleInputChange(event)
 })
 
