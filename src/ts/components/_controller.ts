@@ -60,6 +60,7 @@ fontForm?.addEventListener('submit', function(event) {
         setTimeout(() => {
             btnFontGen.classList.remove('btn--animation');
             btnFontNonAnimText.textContent = 'GENERATED'
+            btnFontGen.setAttribute('disabled', 'true')
             updateDomWithUserFontSize()
         }, 1400);
         // 1400ms because 13 characters in button from the sass for loop.
