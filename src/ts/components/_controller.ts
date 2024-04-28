@@ -1,4 +1,5 @@
 const btnFontGen = document.querySelector('.btn--font-generator') as HTMLButtonElement;
+const btnFontNonAnimText = document.querySelector('.btn--font-generator .original') as HTMLDivElement;
 const baseFontInput = document.querySelector('.base-font-size') as HTMLButtonElement;
 let isButtonDisable:boolean
 
@@ -32,8 +33,8 @@ baseFontInput.addEventListener('change', (event: Event) => {
 
 function handleInputChange(event: Event) {
     const target = event.target as HTMLFormElement;
+    btnFontNonAnimText.textContent = 'GENERATE'
     if (target.value) {
-        console.log('working!')
         btnFontGen.removeAttribute('disabled')
         isButtonDisable = false
     } else {
@@ -56,7 +57,12 @@ fontForm?.addEventListener('submit', function(event) {
     if (baseFontSize) {
         createFontSizes(baseFontSize, scaleRatioName, 'desktop')
         createFontSizes(baseFontSize, scaleRatioName, 'mobile')
-        updateDomWithUserFontSize()
+        setTimeout(() => {
+            btnFontGen.classList.remove('btn--animation');
+            btnFontNonAnimText.textContent = 'GENERATED'
+            updateDomWithUserFontSize()
+        }, 1400);
+        // 1400ms because 13 characters in button from the sass for loop.
     }
 });
 
