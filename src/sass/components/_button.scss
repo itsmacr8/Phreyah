@@ -14,6 +14,10 @@
     position: relative;
     overflow: hidden;
 
+    &--font-generator {
+        margin-inline: auto;
+        margin-block: 1.5rem;
+    }
     &:disabled {
         --border: none;
         background-color: var(--grey-400);
