@@ -1,6 +1,6 @@
 const btnFontGen = document.querySelector('.btn--font-generator') as HTMLButtonElement;
 const btnFontNonAnimText = document.querySelector('.btn--font-generator .original') as HTMLDivElement;
-const baseFontInput = document.querySelector('.base-font-size') as HTMLButtonElement;
+const baseFontInput = document.querySelector('.base-font-size') as HTMLInputElement;
 let isButtonDisable:boolean
 
 interface fontScaleFormulaInterface {
