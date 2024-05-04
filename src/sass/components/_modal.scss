@@ -61,4 +61,7 @@
     &--hidden {
         display: none;
     }
+    &--animation-open {
+        animation: modal-animation var(--animation-duration) ease-in-out;
+    }
 }

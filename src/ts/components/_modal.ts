@@ -10,11 +10,13 @@ function showModal(modal:HTMLDivElement) {
 
 function closeModal(modal:HTMLDivElement) {
     modal.classList.add('modal--hidden')
+    modal.classList.remove('modal--animation-open')
 }
 
 // open modal window
 modalButton.addEventListener("click", function () {
     showModal(modal)
+    modal.classList.add('modal--animation-open')
 })
 
 // close modal window with click on close button or outside of the modal
