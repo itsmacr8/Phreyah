@@ -1,3 +1,4 @@
+const fontForm = document.querySelector('.font-scale-form') as HTMLFormElement;
 const selectElement = document.querySelector('.font-scale-ratio') as HTMLSelectElement;
 const btnFontGen = document.querySelector('.btn--font-generator') as HTMLButtonElement;
 const btnFontNonAnimText = document.querySelector('.btn--font-generator .original') as HTMLDivElement;
@@ -53,13 +54,10 @@ btnFontGen.addEventListener("click", () => {
     !isButtonDisable && btnFontGen.classList.add('btn--animation');
 })
 
-const fontForm = document.querySelector('.font-scale-form');
 fontForm?.addEventListener('submit', function(event) {
     event.preventDefault();
-    const form = event.target as HTMLFormElement;
-
-    const baseFontSize = Number((form.elements.namedItem('base-font-size') as HTMLInputElement).value);
-    const scaleRatioName = (form.elements.namedItem('font-scale-ratio') as HTMLSelectElement).value;
+    const baseFontSize = Number(baseFontInput.value);
+    const scaleRatioName = selectElement.value
     if (baseFontSize) {
         createFontSizes(baseFontSize, scaleRatioName, 'desktop')
         createFontSizes(baseFontSize, scaleRatioName, 'mobile')
