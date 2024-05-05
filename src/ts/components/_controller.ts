@@ -1,3 +1,4 @@
+const root = document.documentElement;
 const fontForm = document.querySelector('.font-scale-form') as HTMLFormElement;
 const selectElement = document.querySelector('.font-scale-ratio') as HTMLSelectElement;
 const btnFontGen = document.querySelector('.btn--font-generator') as HTMLButtonElement;
@@ -61,10 +62,6 @@ fontForm?.addEventListener('submit', function(event) {
     event.preventDefault();
     const baseFontSize = Number(baseFontInput.value);
 
-    const primary = primaryColor.value;
-    const secondary = secondaryColor.value;
-    const tertiary = tertiaryColor.value;
-
     const scaleRatioName = selectElement.value
     if (baseFontSize) {
         createFontSizes(baseFontSize, scaleRatioName, 'desktop')
@@ -74,10 +71,17 @@ fontForm?.addEventListener('submit', function(event) {
             btnFontNonAnimText.textContent = 'GENERATED'
             btnFontGen.setAttribute('disabled', 'true')
             updateDomWithUserFontSize()
+            updateWebsiteColor('primary', primaryColor.value);
+            updateWebsiteColor('secondary', secondaryColor.value);
+            updateWebsiteColor('tertiary', tertiaryColor.value);
         }, 1400);
         // 1400ms because 13 characters in button from the sass for loop.
     }
 });
+
+function updateWebsiteColor(varName: string, color: string) {
+    color && root.style.setProperty(`--${varName}-400`, color);
+}
 
 function createFontSizes(baseFS:number, scaleRatioName:string, screenSize:string) {
     let [h1, h2, h3, h4, h5, h6, baseFontSize, smallText] = getCalcDesktopFontSizes(baseFS, scaleRatioName)
