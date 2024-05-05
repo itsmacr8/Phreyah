@@ -2,6 +2,9 @@ const fontForm = document.querySelector('.font-scale-form') as HTMLFormElement;
 const selectElement = document.querySelector('.font-scale-ratio') as HTMLSelectElement;
 const btnFontGen = document.querySelector('.btn--font-generator') as HTMLButtonElement;
 const btnFontNonAnimText = document.querySelector('.btn--font-generator .original') as HTMLDivElement;
+const primaryColor = document.querySelector('.website-primary-color') as HTMLInputElement;
+const secondaryColor = document.querySelector('.website-secondary-color') as HTMLInputElement;
+const tertiaryColor = document.querySelector('.website-tertiary-color') as HTMLInputElement;
 const baseFontInput = document.querySelector('.base-font-size') as HTMLInputElement;
 let isButtonDisable:boolean
 
@@ -57,6 +60,11 @@ btnFontGen.addEventListener("click", () => {
 fontForm?.addEventListener('submit', function(event) {
     event.preventDefault();
     const baseFontSize = Number(baseFontInput.value);
+
+    const primary = primaryColor.value;
+    const secondary = secondaryColor.value;
+    const tertiary = tertiaryColor.value;
+
     const scaleRatioName = selectElement.value
     if (baseFontSize) {
         createFontSizes(baseFontSize, scaleRatioName, 'desktop')
